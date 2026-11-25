@@ -29,7 +29,7 @@ pipeline {
 
                     docker run -d \
                     --name jenkins-nginx \
-                    -p 8080:80 \
+                    -p 8081:80 \
                     jenkins-nginx:v1
                 '''
             }
@@ -38,7 +38,7 @@ pipeline {
         stage('Verify Deployment') {
             steps {
                 sh 'docker ps'
-                sh 'curl -I http://localhost:8080'
+                sh 'curl -I http://localhost:8081'
             }
         }
     }
